@@ -122,7 +122,10 @@ app.get(
   }
 );
 
-app.get("/auth/logout", (req, res) => {});
+app.get("/auth/logout", (req, res) => {
+    req.logOut();
+    return res.redirect('/');
+});
 
 app.get("/", (req, res) => {
   return res.sendFile(path.join(__dirname, "public", "index.html"));
